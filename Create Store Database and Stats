@@ -1,0 +1,34 @@
+--Create a store database
+
+CREATE TABLE video_game_store (id INTEGER, name TEXT, price NUMERIC, number_of_players NUMERIC, metascore NUMERIC);
+INSERT INTO video_game_store VALUES(1, "Skyrim", 15, 1, 96);
+INSERT INTO video_game_store VALUES(2, "Pokemon Diamond", 50, 2, 85);
+INSERT INTO video_game_store VALUES(3, "Banjo-Kazooie", 45, 1, 92);
+INSERT INTO video_game_store VALUES(4, "Battlefield 5", 8, 64, 73);
+INSERT INTO video_game_store VALUES(5, "Assasins Creed IV: Black Flag", 12, 1, 83);
+INSERT INTO video_game_store VALUES(6, "Guitar Hero 3", 17, 1, 79);
+INSERT INTO video_game_store VALUES(7, "Tony Hawk's Pro Skater 4", 16, 8, 94);
+INSERT INTO video_game_store VALUES(8, "Kingdom Hearts 2", 18, 1, 87);
+INSERT INTO video_game_store VALUES(9, "Diddy Kong Racing", 40, 4, 88);
+INSERT INTO video_game_store VALUES(10, "Need For Speed:Most Wanted", 27, 1, 82);
+INSERT INTO video_game_store VALUES(11, "Far Cry 5", 28, 12, 81);
+INSERT INTO video_game_store VALUES(12, "Star Fox 64", 23, 4, 88);
+INSERT INTO video_game_store VALUES(13, "Star Wars Battlefront 2", 16, 2, 78);
+INSERT INTO video_game_store VALUES(14, "War Thunder", 0, 32, 81);
+INSERT INTO video_game_store VALUES(15, "Golden Eye 007", 35, 4, 96);
+
+--display the database ordered by price.
+
+SELECT * FROM video_game_store
+ORDER BY price DESC;
+
+--what is the avg price of games with a metascore above 90?
+
+SELECT AVG(price) "AVG PRICE METASCORE 90+"
+FROM video_game_store
+WHERE metascore >= 90;
+
+--What is the most amount of players in one game?
+
+SELECT MAX(number_of_players) "Most Players In One Game"
+FROM video_game_store;
