@@ -50,8 +50,13 @@ FROM BIT_DB.Spotifydata
 WHERE acousticness >= 0.5
 AND tempo >= 120;
 
-#5. What are the lowest 10 songs based on 'energy' ?
-SELECT track_name, energy
+#5. Label each song as 'Banging', 'Upbeat', 'Chill', or 'Boring' based on the 'energy' category.
+SELECT track_name, energy,
+    CASE
+    WHEN energy >= 0.75 THEN 'Banging'
+    WHEN energy >= 0.5 THEN 'Upbeat'
+    WHEN energy >= 0.25 THEN 'Chill'
+    ELSE 'Boring'
+END AS 'Intensity'
 FROM BIT_DB.Spotifydata
-ORDER BY energy ASC
-LIMIT 10;
+
